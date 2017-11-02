@@ -20,7 +20,11 @@ public abstract class User {
     public String getMail(){return mail;}
     public String getCellphone(){return cellphone;}
     public String getPassword(){return password;}
+
     public void setName(String newName){name = newName;}
+    public void setMail(String newMail){mail = newMail;}
+    public void setCellphone(String newCellphone){cellphone = newCellphone;}
+    public void setPassword(String newPassword){password = newPassword;}
 
     public void logOut(){
         System.out.println("Logged out");
