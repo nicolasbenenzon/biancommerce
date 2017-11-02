@@ -1,9 +1,11 @@
+package Model;
+
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
 
 /**
- *  Wrapper careTaker class for the underlying StoreMemento class. Store contains solely the current
+ *  Wrapper careTaker class for the underlying StoreMemento class. Model.Store contains solely the current
  *  instance of the store and the memento to which the system can return were it to fail, in addition
  *  to methods purely to interface with the underlying store.
  *   This careTaker class is in itself a Singleton, for each system will and can only contain one store.
@@ -15,11 +17,11 @@ public class Store{
      */
     private static final Store INSTANCE = new Store();
     private Store(){}
-    public Store getInstace(){ return INSTANCE;}
+    public static Store getInstace(){ return INSTANCE;}
 
     /**
      *  Memento pattern parameters which are to be used as the two separate instances of the store.
-     * The importance of these is explained in the SuccessfulSystem
+     * The importance of these is explained in the SuccessfulSystem and failureInSystem methods.
      */
     private Store current;
     private Store memento;
@@ -47,11 +49,14 @@ public class Store{
     public void failureInSystem(){current = memento;}
     public void successfulSystem(){memento = current;}
 
-    public void addProduct(Product p){current.addProduct(p);}
+    public void addProduct(Product p){ current.addProduct(p);}
     public void removeProduct(Product p){current.removeProduct(p);}
 
     public void addUser(User u){current.addUser(u);}
     public void removeUser(User u){current.removeUser(u);}
+
+    public boolean userExists(User u){return current.userExists(u);}
+    public boolean productExists(Product p){return current.productExists(p);}
 
 private class StoreMemento{
 
@@ -75,5 +80,8 @@ private class StoreMemento{
 
         public void addUser(User u){ users.add(u);}
         public void remvoeUser(User u){ users.remove(u);}
+
+        public boolean userExists(User u){return users.contains(u);}
+        public boolean productExists(Product p){return products.contains(p);}
     }
 }
