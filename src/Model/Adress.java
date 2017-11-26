@@ -1,3 +1,4 @@
+package Model;
 /**
  *  This class exists simply to encapsulate the data regarding a users adress or the
  *  destination of a product.
