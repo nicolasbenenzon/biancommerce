@@ -56,6 +56,7 @@ public class AccessAdmin extends JFrame {
 		contentPane.add(btnEditarProductos);
 		
 		JTextPane txtpnCantidadDeUsuarios = new JTextPane();
+		txtpnCantidadDeUsuarios.setEditable(false);
 		txtpnCantidadDeUsuarios.setBackground(UIManager.getColor("Desktop.background"));
 		txtpnCantidadDeUsuarios.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtpnCantidadDeUsuarios.setText("Cantidad de Usuarios:" + " " + Window.users.size());
@@ -63,6 +64,7 @@ public class AccessAdmin extends JFrame {
 		contentPane.add(txtpnCantidadDeUsuarios);
 		
 		JTextPane txtpnCantidadDeProductos = new JTextPane();
+		txtpnCantidadDeProductos.setEditable(false);
 		txtpnCantidadDeProductos.setText("Cantidad de Productos:");
 		txtpnCantidadDeProductos.setFont(new Font("Dialog", Font.PLAIN, 14));
 		txtpnCantidadDeProductos.setBackground(UIManager.getColor("Desktop.background"));
@@ -70,6 +72,7 @@ public class AccessAdmin extends JFrame {
 		contentPane.add(txtpnCantidadDeProductos);
 		
 		JTextPane txtpnProductosSinStock = new JTextPane();
+		txtpnProductosSinStock.setEditable(false);
 		txtpnProductosSinStock.setBackground(UIManager.getColor("Desktop.background"));
 		txtpnProductosSinStock.setFont(new Font("Dialog", Font.BOLD, 14));
 		txtpnProductosSinStock.setText("Productos sin stock:");

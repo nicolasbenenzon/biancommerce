@@ -13,6 +13,7 @@ import javax.swing.UIManager;
 import javax.swing.JPasswordField;
 import javax.swing.JFormattedTextField;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -40,7 +41,7 @@ import java.awt.Label;
 
 public class Window {
 
-	private JFrame frame;
+	public JFrame frame;
 	private JTextField txtElectroStore;
 	private JPasswordField passwordField;
 	private JTextField txtHoagegee;
@@ -109,6 +110,31 @@ public class Window {
 		frame.getContentPane().add(formattedTextField);
 		
 		JButton btnNewButton = new JButton("Ingresar");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				
+				boolean found = false;
+				for(User u: users) {
+					if(u.getMail().equals(formattedTextField.getText())) {
+						found = true;
+						String passText = new String(passwordField.getPassword());
+						if(u.getPassword().equals(passText)) {
+							JFrame frameUserMenu = new UserMenu(u);
+							frameUserMenu.setVisible(true);
+							frame.setVisible(false);
+							frameUserMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE );
+						}else {
+							JOptionPane.showMessageDialog(new JFrame(), "Contraseña incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+						}
+					}
+				}
+				if(found == false) {
+					JOptionPane.showMessageDialog(new JFrame(), "No existe un usuario con ese correo", "Error", JOptionPane.ERROR_MESSAGE);
+				}
+				
+			}
+		});
 		btnNewButton.setFont(new Font("Carlito", Font.BOLD, 18));
 		btnNewButton.setBounds(494, 223, 166, 86);
 		frame.getContentPane().add(btnNewButton);
