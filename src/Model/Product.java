@@ -5,7 +5,7 @@ package Model;
  */
 //Class description :
 //The product defines an item that can be sold and exposed on the website.
-public class Product {
+public class Product implements Cloneable{
     //public parameters
 
     // private parameters
@@ -36,6 +36,15 @@ public class Product {
         this.price = pPrice;
         this.stock = pStock;
         this.typeOfProduct = pType;
+    }
+    public Product clone(){
+
+        Object o = null;
+        try{
+            o = super.clone();
+        }
+        catch(CloneNotSupportedException e){}
+        return (Product) o;
     }
     //getters and setters
     public void setName(String pName){

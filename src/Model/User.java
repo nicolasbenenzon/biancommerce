@@ -3,7 +3,7 @@ package Model;
 /**
  * Created by Bianca on 2/11/2017.
  */
-public class User {
+public class User implements Cloneable{
     private String name;
     private String mail;
     private int dni;
@@ -188,6 +188,17 @@ public class User {
 		} else if (!mail.equals(other.mail))
 			return false;
 		return true;
+	}
+
+
+	public User clone(){
+
+		Object o = null;
+		try{
+			o = super.clone();
+		}
+		catch(CloneNotSupportedException e){}
+		return (User) o;
 	}
 
 

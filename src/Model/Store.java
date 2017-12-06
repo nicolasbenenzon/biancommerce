@@ -1,5 +1,6 @@
 package Model;
 
+import javax.print.attribute.URISyntax;
 import java.awt.*;
 import java.util.List;
 import java.util.ArrayList;
@@ -23,8 +24,8 @@ public class Store{
      *  Memento pattern parameters which are to be used as the two separate instances of the store.
      * The importance of these is explained in the SuccessfulSystem and failureInSystem methods.
      */
-    private Store current;
-    private Store memento;
+    private StoreMemento current;
+    private StoreMemento memento;
 
     /**
      * initializes the stores (the memento and the current instance) only if they weren't previously
@@ -46,8 +47,8 @@ public class Store{
      *   The successfulSystem method is to be called only after it is certain that the current
      *  version contains no errors and thus the system can roll back to it in the future.
      */
-    public void failureInSystem(){current = memento;}
-    public void successfulSystem(){memento = current;}
+    public void failureInSystem(){current = memento.copy();}
+    public void successfulSystem(){memento = current.copy();}
 
     public void addProduct(Product p){ current.addProduct(p);}
     public void removeProduct(Product p){current.removeProduct(p);}
@@ -58,7 +59,15 @@ public class Store{
     public boolean userExists(User u){return current.userExists(u);}
     public boolean productExists(Product p){return current.productExists(p);}
 
-private class StoreMemento{
+    private class StoreMemento{
+
+        private String brandName;
+        private String URI;
+        private Image logo;
+        private Admin admin;
+        ArrayList<Product> products = new ArrayList<>();
+        ArrayList<User> users = new ArrayList<>();
+
 
         public StoreMemento(String brandName, String URI, Image logo, Admin admin){
             this.brandName = brandName;
@@ -67,21 +76,22 @@ private class StoreMemento{
             this.logo = logo;
         }
 
-
-        private String brandName;
-        private String URI;
-        private Image logo;
-        private Admin admin;
-        List<Product> products;
-        List<User> users = new ArrayList<>();
-
         public void addProduct(Product p){ products.add(p);}
         public void removeProduct(Product p){ products.remove(p);}
 
         public void addUser(User u){ users.add(u);}
-        public void remvoeUser(User u){ users.remove(u);}
+        public void removeUser(User u){ users.remove(u);}
 
         public boolean userExists(User u){return users.contains(u);}
         public boolean productExists(Product p){return products.contains(p);}
+
+        public StoreMemento copy(){
+            StoreMemento ret = new StoreMemento(brandName, URI, logo, admin);
+            for(User u: users)
+                ret.addUser(u.clone());
+            for(Product p: products)
+                ret.addProduct(p.clone());
+            return ret;
+        }
     }
 }
