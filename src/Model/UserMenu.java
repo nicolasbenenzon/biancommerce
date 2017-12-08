@@ -105,74 +105,101 @@ public class UserMenu extends JFrame {
 		contentPane.add(txtpnCamaras);
 		
 		JLabel lblNewLabel = new JLabel("");
+		Image img = new ImageIcon(this.getClass().getResource("/cell-phone-icon-7447.png")).getImage();
+		Image img2 = getScaledImage(img, 115, 115);
 		lblNewLabel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Category c = new Category("Celulares", "Telefonos moviles", img2);
+				ProductTable pt= new ProductTable(c);
+				pt.setVisible(true);
+				pt.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
 		});
 		lblNewLabel.setBounds(94, 221, 115, 115);
-		Image img = new ImageIcon(this.getClass().getResource("/cell-phone-icon-7447.png")).getImage();
-		Image img2 = getScaledImage(img, 115, 115);
 		lblNewLabel.setIcon(new ImageIcon(img2));
 		contentPane.add(lblNewLabel);
 		
 		JLabel label = new JLabel("");
+		Image img3 = new ImageIcon(this.getClass().getResource("/laptop.png")).getImage();
+		Image img4 = getScaledImage(img3, 192, 115);
 		label.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Category c = new Category("Notebooks", "Computadoras portatiles", img4);
+				ProductTable pt= new ProductTable(c);
+				pt.setVisible(true);
+				pt.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
 		});
 		label.setBounds(295, 221, 192, 115);
-		Image img3 = new ImageIcon(this.getClass().getResource("/laptop.png")).getImage();
-		Image img4 = getScaledImage(img3, 192, 115);
+		
 		label.setIcon(new ImageIcon(img4));
 		contentPane.add(label);
 		
 		JLabel label_1 = new JLabel("");
+		Image img5 = new ImageIcon(this.getClass().getResource("/tvicon.png")).getImage();
+		Image img6 = getScaledImage(img5, 115, 115);
 		label_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Category c = new Category("Televisores", "LEDS, LCD", img6);
+				ProductTable pt= new ProductTable(c);
+				pt.setVisible(true);
+				pt.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
 		});
 		label_1.setBounds(553, 221, 115, 115);
-		Image img5 = new ImageIcon(this.getClass().getResource("/tvicon.png")).getImage();
-		Image img6 = getScaledImage(img5, 115, 115);
+		
 		label_1.setIcon(new ImageIcon(img6));
 		contentPane.add(label_1);
 		
 		JLabel label_2 = new JLabel("");
+		Image img7 = new ImageIcon(this.getClass().getResource("/headphone-icon.png")).getImage();
+		Image img8 = getScaledImage(img7, 115, 115);
 		label_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Category c = new Category("Auriculares", "Audiofonos", img8);
+				ProductTable pt= new ProductTable(c);
+				pt.setVisible(true);
+				pt.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
 		});
 		label_2.setBounds(94, 384, 115, 115);
-		Image img7 = new ImageIcon(this.getClass().getResource("/headphone-icon.png")).getImage();
-		Image img8 = getScaledImage(img7, 115, 115);
 		label_2.setIcon(new ImageIcon(img8));
 		contentPane.add(label_2);
 		
 		JLabel label_3 = new JLabel("");
+		Image img9 = new ImageIcon(this.getClass().getResource("/Tablet-512.png")).getImage();
+		Image img10 = getScaledImage(img9, 115, 115);
 		label_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Category c = new Category("Tablets", "iPads y tablets android", img10);
+				ProductTable pt= new ProductTable(c);
+				pt.setVisible(true);
+				pt.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
 		});
 		label_3.setBounds(326, 384, 115, 115);
-		Image img9 = new ImageIcon(this.getClass().getResource("/Tablet-512.png")).getImage();
-		Image img10 = getScaledImage(img9, 115, 115);
 		label_3.setIcon(new ImageIcon(img10));
 		contentPane.add(label_3);
 		
 		JLabel label_4 = new JLabel("");
+		Image img11 = new ImageIcon(this.getClass().getResource("/camera.png")).getImage();
+		Image img12 = getScaledImage(img11, 153, 115);
 		label_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				Category c = new Category("Camaras", "Camaras profesionales reflex y semireflex", img12);
+				ProductTable pt= new ProductTable(c);
+				pt.setVisible(true);
+				pt.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 			}
 		});
 		label_4.setBounds(526, 384, 115, 115);
-		Image img11 = new ImageIcon(this.getClass().getResource("/camera.png")).getImage();
-		Image img12 = getScaledImage(img11, 153, 115);
+	
 		label_4.setIcon(new ImageIcon(img12));
 		contentPane.add(label_4);
 		

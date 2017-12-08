@@ -32,7 +32,7 @@ public class AccessAdmin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JButton btnNewButton = new JButton("Eliminar Usuario");
+		JButton btnNewButton = new JButton("Eliminar usuario");
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {

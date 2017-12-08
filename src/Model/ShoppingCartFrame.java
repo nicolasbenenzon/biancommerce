@@ -125,28 +125,11 @@ public class ShoppingCartFrame extends JFrame {
 		button_1.setBackground(UIManager.getColor("Desktop.background"));
 		button_1.setVerticalTextPosition(SwingConstants.BOTTOM);
 		button_1.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_1.setBounds(12, 338, 195, 113);
+		button_1.setBounds(132, 338, 195, 113);
 		Image cash = new ImageIcon(this.getClass().getResource("/cash2.png")).getImage();
 		button_1.setIcon(new ImageIcon(cash));
 		contentPane.add(button_1);
-		
-		JButton button_2 = new JButton("Reservar");
-		button_2.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				dispose();
-				JOptionPane.showMessageDialog(new JFrame(), "Compra reservada. Correo enviado a " + usr.getMail(), "Gracias por su compra", JOptionPane.INFORMATION_MESSAGE);
-				System.exit(0);
-			}
-		});
-		button_2.setFont(new Font("Dialog", Font.BOLD, 11));
-		button_2.setBackground(UIManager.getColor("Desktop.background"));
-		button_2.setVerticalTextPosition(SwingConstants.BOTTOM);
-		button_2.setHorizontalTextPosition(SwingConstants.CENTER);
-		button_2.setBounds(243, 338, 195, 113);
 		Image ok = new ImageIcon(this.getClass().getResource("/oks.png")).getImage();
-		button_2.setIcon(new ImageIcon(ok));
-		contentPane.add(button_2);
 	}
 	
 
